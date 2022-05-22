@@ -1,15 +1,16 @@
 
-# Image Segmentation Keras : Implementation of Segnet, FCN, UNet, PSPNet and other models in Keras.
+# Semantic Segmentation - Advance Computer Vision Assignment
 
-[![PyPI version](https://badge.fury.io/py/keras-segmentation.svg)](https://badge.fury.io/py/keras-segmentation)
-[![Downloads](https://pepy.tech/badge/keras-segmentation)](https://pepy.tech/project/keras-segmentation)
-[![Build Status](https://travis-ci.org/divamgupta/image-segmentation-keras.png)](https://travis-ci.org/divamgupta/image-segmentation-keras)
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
-[![Twitter](https://img.shields.io/twitter/url.svg?label=Follow%20%40divamgupta&style=social&url=https%3A%2F%2Ftwitter.com%2Fdivamgupta)](https://twitter.com/divamgupta)
-
-
+To run the project, please run following commands:
 ```shell
 git clone https://github.com/imsadia/cv-assignment-three
 cd cv-assignment-three
 python setup.py install
 ```
+
+If you want to check the summary of the models that I have used to train the dataset for the assignment, you can check the ModelsSummary notebook inside root folder of the repository.
+
+For checking the training and evaluation of the models on the dataset provided in the assignment, you can check Mobilenet_Unet and VGG_Unet notebooks.
+
+# Reference
+[image-segmentation-keras](https://github.com/divamgupta/image-segmentation-keras)
