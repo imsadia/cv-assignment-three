@@ -1,6 +1,6 @@
-import keras
-from keras.models import *
-from keras.layers import *
+import tensorflow.keras
+from tensorflow.keras.models import *
+from tensorflow.keras.layers import *
 
 from .config import IMAGE_ORDERING
 
@@ -74,8 +74,9 @@ def get_vgg_encoder(input_height=224,  input_width=224, pretrained='imagenet', c
     f5 = x
 
     if pretrained == 'imagenet':
-        VGG_Weights_path = keras.utils.get_file(
+        VGG_Weights_path = tensorflow.keras.utils.get_file(
             pretrained_url.split("/")[-1], pretrained_url)
-        Model(img_input, x).load_weights(VGG_Weights_path, by_name=True, skip_mismatch=True)
+        Model(img_input, x).load_weights(
+            VGG_Weights_path, by_name=True, skip_mismatch=True)
 
     return img_input, [f1, f2, f3, f4, f5]

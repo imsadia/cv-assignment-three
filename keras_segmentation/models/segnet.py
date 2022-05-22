@@ -1,5 +1,5 @@
-from keras.models import *
-from keras.layers import *
+from tensorflow.keras.models import *
+from tensorflow.keras.layers import *
 
 from .config import IMAGE_ORDERING
 from .model_utils import get_segmentation_model
@@ -32,7 +32,8 @@ def segnet_decoder(f, n_classes, n_up=3):
 
     o = (UpSampling2D((2, 2), data_format=IMAGE_ORDERING))(o)
     o = (ZeroPadding2D((1, 1), data_format=IMAGE_ORDERING))(o)
-    o = (Conv2D(64, (3, 3), padding='valid', data_format=IMAGE_ORDERING, name="seg_feats"))(o)
+    o = (Conv2D(64, (3, 3), padding='valid',
+         data_format=IMAGE_ORDERING, name="seg_feats"))(o)
     o = (BatchNormalization())(o)
 
     o = Conv2D(n_classes, (3, 3), padding='same',
@@ -92,6 +93,6 @@ def mobilenet_segnet(n_classes, input_height=224, input_width=224,
 if __name__ == '__main__':
     m = vgg_segnet(101)
     m = segnet(101)
-    # m = mobilenet_segnet( 101 )
+    m = mobilenet_segnet(101)
     # from keras.utils import plot_model
     # plot_model( m , show_shapes=True , to_file='model.png')

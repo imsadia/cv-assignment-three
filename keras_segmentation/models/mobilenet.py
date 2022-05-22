@@ -1,7 +1,7 @@
-from keras.models import *
-from keras.layers import *
-import keras.backend as K
-import keras
+from tensorflow.keras.models import *
+from tensorflow.keras.layers import *
+import tensorflow.keras.backend as K
+import tensorflow.keras
 
 from .config import IMAGE_ORDERING
 
@@ -107,8 +107,9 @@ def get_mobilenet_encoder(input_height=224, input_width=224,
         model_name = 'mobilenet_%s_%d_tf_no_top.h5' % ('1_0', 224)
 
         weight_path = BASE_WEIGHT_PATH + model_name
-        weights_path = keras.utils.get_file(model_name, weight_path)
+        weights_path = tensorflow.keras.utils.get_file(model_name, weight_path)
 
-        Model(img_input, x).load_weights(weights_path, by_name=True, skip_mismatch=True)
+        Model(img_input, x).load_weights(
+            weights_path, by_name=True, skip_mismatch=True)
 
     return img_input, [f1, f2, f3, f4, f5]
